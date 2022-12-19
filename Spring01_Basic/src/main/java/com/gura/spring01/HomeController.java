@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-   
+	
    @RequestMapping("/")
    public String home(HttpServletRequest request) {
       //응답에 필요한 데이터(Model) 이라고 가정하자

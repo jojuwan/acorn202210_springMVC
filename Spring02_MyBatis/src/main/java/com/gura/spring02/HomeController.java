@@ -1,39 +1,29 @@
 package com.gura.spring02;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
-	}
-	
+   @RequestMapping("/")
+   public String home(HttpServletRequest request) {
+      //응답에 필요한 데이터(Model) 이라고 가정하자
+	  List<String> noticeList=new ArrayList<String>();
+	  noticeList.add("날씨가 많이 추워졌네요");
+	  noticeList.add("어쩌구...");
+	  noticeList.add("저쩌구...");
+	  
+	  //Model 을 request scope 에 특정 key 값으로 담는다.
+	  request.setAttribute("noticeList", noticeList);
+	   
+	  // /WEB-INF/views/home.jsp 페이지로 응답을 위임 시키기(forward 이동)
+      return "home";
+   }
+   
 }
