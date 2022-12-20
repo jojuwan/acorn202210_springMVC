@@ -1,4 +1,4 @@
-package com.gura.spring03.interceptor;
+package com.gura.spring04.interceptor;
 
 import java.net.URLEncoder;
 
