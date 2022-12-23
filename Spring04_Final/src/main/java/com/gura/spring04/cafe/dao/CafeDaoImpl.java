@@ -8,20 +8,21 @@ import org.springframework.stereotype.Repository;
 
 import com.gura.spring04.cafe.dto.CafeDto;
 
+
 @Repository
 public class CafeDaoImpl implements CafeDao{
-
+	
 	@Autowired
 	private SqlSession session;
 	
 	@Override
 	public List<CafeDto> getList(CafeDto dto) {
 		/*
-		 * 검색기능은
-		 * 1. 제목+내용
-		 * 2. 제목
-		 * 3. 작성자
-		 * 검색 3가지 기능을 제공할 예정이다. 
+		 *  검색기능은
+		 *  1. 제목+내용
+		 *  2. 제목
+		 *  3. 작성자 
+		 *  검색 3가지 기능을 제공할 예정이다.
 		 */
 		return session.selectList("cafe.getList", dto);
 	}
@@ -42,15 +43,15 @@ public class CafeDaoImpl implements CafeDao{
 		
 		return session.selectOne("cafe.getData", num);
 	}
-	//조회수 올리는 메소드
+	//조회수 올리는 메소드 
 	@Override
 	public void addViewCount(int num) {
-		session.update("cafe.addViewCount", num);		
+		session.update("cafe.addViewCount", num);
 	}
 
 	@Override
 	public void delete(int num) {
-		session.delete("cafe.delete", num);	
+		session.delete("cafe.delete", num);
 	}
 
 	@Override
@@ -58,4 +59,16 @@ public class CafeDaoImpl implements CafeDao{
 		session.update("cafe.update", dto);
 	}
 
+	@Override
+	public CafeDto getData(CafeDto dto) {
+		
+		return session.selectOne("cafe.getData2", dto);
+	}
+
 }
+
+
+
+
+
+
