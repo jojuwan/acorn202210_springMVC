@@ -30,8 +30,13 @@ public class Boot02AopApplication {
 		
 		Messenger mgr=ctx.getBean(Messenger.class);
 		String msg=mgr.getMessage();
-		
 		System.out.println("Messenger 객체로 부터 받은 메세지:"+msg);
+		
+		mgr.sendGreeting("안녕하세요");
+		mgr.sendGreeting("바보야 안녕");
+		mgr.sendGreeting("또 만났군요!");
+		
+		
 	}
 
 }

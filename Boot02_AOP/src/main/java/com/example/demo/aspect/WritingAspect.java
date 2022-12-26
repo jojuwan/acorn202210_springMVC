@@ -5,8 +5,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
-@Aspect
-@Component
+@Aspect //aspect 역활을 하기위한 어노테이션
+@Component //bean 으로 만들기 위한 어노테이션
 public class WritingAspect {
 	
 	@Before("execution(void write*())")
