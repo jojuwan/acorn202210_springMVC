@@ -22,6 +22,7 @@ public class WebConfig implements WebMvcConfigurer{
 		.excludePathPatterns("/users/signup_form", "/users/signup", "/users/loginform", "/users/login");
 	}
 	// resources 폴더안에 있는 자원을 spring 컨트롤러를 거치지 않고 응답되도록 설정
+	// webapp 안에 resources 폴더를 만들어야 한다.
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
