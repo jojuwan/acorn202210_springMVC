@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -160,6 +161,11 @@ public class UsersServiceImpl implements UsersService{
 		session.removeAttribute("id");
 		//ModelAndView 객체에 탈퇴한 회원의 아이디를 담아준다.
 		mView.addObject("id", id);
+		
+	}
+	@Override
+	public void loginProcess(UsersDto dto, HttpSession session, HttpServletResponse response) {
+		// TODO Auto-generated method stub
 		
 	}
 
