@@ -14,18 +14,6 @@ public class MusicDto {
 	
 	public MusicDto() {}
 
-	public MusicDto(int num, String writer, String title, String artist, String orgFileName, String saveFileName,
-			String regdate) {
-		super();
-		this.num = num;
-		this.writer = writer;
-		this.title = title;
-		this.artist = artist;
-		this.orgFileName = orgFileName;
-		this.saveFileName = saveFileName;
-		this.regdate = regdate;
-	}
-
 	public int getNum() {
 		return num;
 	}
@@ -81,5 +69,6 @@ public class MusicDto {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+	
 	
 }

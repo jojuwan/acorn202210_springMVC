@@ -30,8 +30,8 @@ public class AndroidController {
 		song1.put("fileName", "mp3piano.mp3");
 		
 		Map<String, Object> song2=new HashMap<>();
-		song2.put("title", "Over The Horizion");
-		song2.put("fileName", "Over_the_Horizion.mp3");
+		song2.put("title", "Over The Horizon");
+		song2.put("fileName", "Over_the_Horizon.mp3");
 		
 		List<Map<String, Object>> list=new ArrayList<>();
 		list.add(song1);
@@ -39,6 +39,7 @@ public class AndroidController {
 		
 		return list;
 	}
+	
 	
 	/*
 	 *  JSON 문자열 응답하기
@@ -49,16 +50,16 @@ public class AndroidController {
 	@RequestMapping("/api/send")
 	@ResponseBody
 	public Map<String, Object> send(String msg){
-
+		
 		System.out.println(msg);
 		Map<String, Object> map=new HashMap<>();
 		map.put("isSuccess",true);
 		map.put("response","hello client!");
 		map.put("num", 1);
-
+		
 		return map;
 	}
-
+	
 	@RequestMapping("/api/list")
 	@ResponseBody
 	public List<String> list(int pageNum){
@@ -68,16 +69,16 @@ public class AndroidController {
 		names.add("원숭이");
 		return names;
 	}
-	//로그인 여부를 json 으로 응답하는 메소드
+	//로그인 여부를 json 으로 응답하는 메소드 
 	@RequestMapping("/api/logincheck")
 	@ResponseBody
 	public Map<String, Object> logincheck(HttpSession session){
-		//테스트로 session 의 아이디를 출력해 보기
+		//테스트로 session 의 아이디를 출력해 보기 
 		System.out.println("세션 아이디:"+session.getId());
 		Map<String, Object> map=new HashMap<>();
-		//세션 영역에 id 라는 키값으로 저장된 값이 있는지 읽어와 본다.
+		//세션 영역에 id 라는 키값으로 저장된 값이 있는지 읽어와 본다. 
 		String id=(String)session.getAttribute("id");
-		//만일 로그인을 하지 않았다면
+		//만일 로그인을 하지 않았다면 
 		if(id == null) {
 			map.put("isLogin", false);
 			System.out.println("로그인중이 아님요");
@@ -91,7 +92,7 @@ public class AndroidController {
 	@RequestMapping("/api/login")
 	@ResponseBody
 	public Map<String, Object> login(String id, String pwd, HttpSession session){
-		//session.setMaxInactiveInterval(60*60*24*365); 세션 원하는 시간만큼(지금 해놓은건 1년)
+		
 		System.out.println(id+"|"+pwd);
 		Map<String, Object> map=new HashMap<>();
 		if(id.equals("gura") && pwd.equals("1234")) {
@@ -117,7 +118,7 @@ public class AndroidController {
 	@RequestMapping("/api/gallery/list")
 	@ResponseBody
 	public List<GalleryDto> galleryList(){
-		//최신 gallery 데이터 10 개만 가지고 오기 위해
+		//최신 gallery 데이터 10 개만 가지고 오기 위해 
 		GalleryDto dto=new GalleryDto();
 		dto.setStartRowNum(1);
 		dto.setEndRowNum(10);
