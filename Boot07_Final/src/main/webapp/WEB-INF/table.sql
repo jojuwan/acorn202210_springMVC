@@ -93,3 +93,16 @@ CREATE TABLE board_gallery(
 );
 
 CREATE SEQUENCE board_gallery_seq;
+
+-- mp3 목록을 관리 하기 위한 테이블
+CREATE TABLE board_music(
+	num NUMBER PRIMARY KEY,
+	writer VARCHAR2(100), -- 서버에 로그인된 아이디 
+	title VARCHAR2(100), -- mp3 파일의 meta data 에서 추출한 title
+	musician VARCHAR2(100), -- mp3 파일의 meata data 에서 추출한 musician
+	orgFileName VARCHAR2(100),
+	saveFileName VARCHAR2(100),
+	regdate DATE
+);
+
+CREATE SEQUENCE board_music_seq;
