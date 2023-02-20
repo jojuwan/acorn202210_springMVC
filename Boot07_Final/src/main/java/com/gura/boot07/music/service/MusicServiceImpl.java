@@ -113,13 +113,12 @@ public class MusicServiceImpl implements MusicService{
 		String realPath = request.getServletContext().getRealPath("/resources/upload");
 		//db 에 저장할 삭제할 파일의 상세 경로
 		String filePath = realPath + File.separator + dto.getSaveFileName();
-		//파일객체를 생성해서
+		//파일객체를 생성해서 
 		File f=new File(filePath);
 		//메소드를 이용해서 삭제한다.
 		f.delete();
-		//2. DB 에서도 삭제
+		//2. DB 에서도 삭제 
 		dao.delete(num);
-		
 	}
 
 }

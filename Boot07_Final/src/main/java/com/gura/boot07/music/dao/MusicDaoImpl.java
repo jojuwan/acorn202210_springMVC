@@ -44,7 +44,6 @@ public class MusicDaoImpl implements MusicDao{
 	@Override
 	public void delete(int num) {
 		session.delete("music.delete", num);
-		
 	}
 
 }

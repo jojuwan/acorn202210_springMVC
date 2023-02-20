@@ -20,11 +20,12 @@ public class WebConfig implements WebMvcConfigurer{
 	public void addInterceptors(InterceptorRegistry registry) {
 		//웹브라우저의 요청에 대해 개입할 인터셉터 등록
 		registry.addInterceptor(loginInterceptor)
-		.addPathPatterns("/users/*", "/gallery/*", "/cafe/*", "/file/*","/music/*")
+		.addPathPatterns("/users/*","/gallery/*","/cafe/*","/file/*","/music/*")
 		.excludePathPatterns("/users/signup_form", "/users/signup", "/users/loginform", "/users/login",
 				"/gallery/list", "/gallery/detail",
-				"/cafe/list", "/cafe/detail", "/cafe/ajax_comment_list",
-				"/file/list", "/file/download");
+				"/cafe/list","/cafe/detail","/cafe/ajax_comment_list",
+				"/file/list","/file/download",
+				"/music/login");
 		
 		//모바일 요청에 대해 개입할 인터셉터 등록
 		registry.addInterceptor(mLoginInterceptor)
@@ -38,3 +39,6 @@ public class WebConfig implements WebMvcConfigurer{
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 }
+
+
+
